@@ -1,6 +1,9 @@
 # Jupyter
 .ipynb_checkpoints/
 
+# Large local dataset
+Final_Augmented_dataset_Diseases_and_Symptoms.csv
+
 # Python
 __pycache__/
 *.py[cod]
@@ -29,4 +32,3 @@ env/
 *.log
 *.tmp
 *.temp
-
