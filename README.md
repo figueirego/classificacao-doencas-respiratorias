@@ -1,20 +1,58 @@
 # Classificação de doenças respiratórias
 
-Projeto acadêmico de João Matheus de Figueirêdo Tavares e Caio Moura Portela de Sousa, desenvolvido no curso de Sistemas de Informação da Unifacisa, na disciplina do professor Bruno Rafael Araújo Vasconcelos.
+Um estudo de aprendizado de máquina que compara quatro modelos para distinguir **asma, bronquite aguda e pneumonia** a partir de sintomas. O notebook reúne a análise dos dados, a seleção de variáveis e a avaliação dos resultados.
 
-A implementação principal é [projeto_classificacao_doencas.ipynb](projeto_classificacao_doencas.ipynb), mantida neste repositório. Ela compara Árvore de Decisão, Random Forest, Regressão Logística e MLP na classificação de doenças respiratórias a partir de sintomas.
+[Abrir notebook](projeto_classificacao_doencas.ipynb) · [Dataset no Kaggle](https://www.kaggle.com/datasets/dhivyeshrk/diseases-and-symptoms-dataset)
 
-## Versão mantida
+**Python · Jupyter · scikit-learn · pandas · NumPy · Matplotlib · Seaborn**
 
-O notebook mais recente separa treino e teste antes da seleção de variáveis e utiliza validação cruzada com pipeline no conjunto de treino para selecionar a quantidade de variáveis. Inclui métricas adicionais, análise de erros e discussão de overfitting.
+## O estudo
 
-O notebook foi preservado sem alterações nesta consolidação. Não foi reexecutado: o dataset deve ser obtido conforme a referência e o nome de arquivo indicados no próprio notebook. A presença de resultados salvos não significa que tenham sido recalculados nesta reorganização.
+- Exploração e filtragem do dataset para as três doenças respiratórias.
+- Separação estratificada dos dados: **70% para treino e 30% para teste**.
+- Seleção de sintomas com `SelectKBest` e qui-quadrado; escolha da quantidade de variáveis por pipeline e validação cruzada no treino.
+- Comparação entre Árvore de Decisão, Random Forest, Regressão Logística e Rede Neural MLP.
+- Avaliação com matrizes de confusão, métricas de classificação, análise de erros e discussão de overfitting.
 
-## Documentação histórica
+## Resultados
 
-- [Artigo da versão anterior](docs/historico/2026-03-jupyter/artigo_classificacao_doencas.pdf)
-- [Apresentação da versão anterior](docs/historico/2026-03-jupyter/apresentacao_classificacao_doencas.pptx)
-- [Métricas da versão anterior do Jupyter](docs/historico/2026-03-jupyter/metricas_resultados.csv)
-- [CSV anteriormente versionado nesta implementação](docs/historico/metricas_resultados-anteriores-att.csv)
+As saídas salvas no notebook apresentam estes resultados para **999 amostras de teste**:
 
-Esses documentos e CSVs foram preservados como histórico. Seus valores não representam necessariamente a versão atual do notebook. O antigo CSV da raiz estava desatualizado em relação às células e saídas salvas; ele foi movido para esta área, sem alterar os dados. Ao reexecutar o notebook, a célula de exportação gera `metricas_resultados.csv` na raiz.
+| Modelo | Acurácia | F1 ponderado |
+|---|---:|---:|
+| **Regressão Logística** | **90,19%** | **0,9026** |
+| Árvore de Decisão | 89,99% | 0,9010 |
+| Random Forest | 89,79% | 0,8983 |
+| Rede Neural MLP | 89,79% | 0,8976 |
+
+As métricas correspondem às saídas salvas no notebook. Este é um estudo acadêmico, sem validação clínica.
+
+## Executar localmente
+
+Requer Python 3 e acesso ao repositório.
+
+```bash
+git clone https://github.com/figueirego/classificacao-doencas-respiratorias.git
+cd classificacao-doencas-respiratorias
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install notebook numpy pandas scikit-learn matplotlib seaborn
+```
+
+No Windows, crie o ambiente com `python -m venv .venv` e ative-o no PowerShell com `.venv\Scripts\Activate.ps1`.
+
+Baixe o dataset pelo link do Kaggle e coloque o arquivo **`Final_Augmented_dataset_Diseases_and_Symptoms.csv`** na raiz do repositório, ao lado do notebook. O dataset não está incluído no projeto.
+
+```bash
+python -m notebook projeto_classificacao_doencas.ipynb
+```
+
+Execute as células em ordem, do início ao fim. A etapa de comparação exporta **`metricas_resultados.csv`** na raiz. As versões das dependências ainda não estão fixadas; resultados podem variar entre ambientes.
+
+## Autores
+
+**João Matheus de Figueirêdo Tavares** e **Caio Moura Portela de Sousa**.
+
+Sistemas de Informação · Unifacisa.
+
+Professor: Bruno Rafael Araújo Vasconcelos.
