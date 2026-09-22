@@ -25,7 +25,7 @@ As saídas salvas no notebook apresentam estes resultados para **999 amostras de
 | Random Forest | 89,79% | 0,8983 |
 | Rede Neural MLP | 89,79% | 0,8976 |
 
-As métricas correspondem às saídas salvas no notebook. Este é um estudo acadêmico, sem validação clínica.
+[Baixar métricas completas (CSV)](metricas_resultados.csv). As métricas correspondem às saídas salvas no notebook. Este é um estudo acadêmico, sem validação clínica.
 
 ## Executar localmente
 
